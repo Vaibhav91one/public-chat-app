@@ -11,7 +11,7 @@ import axios from 'axios'
 
 function App() {
 
-  axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL
+  axios.defaults.baseURL = "https://vaibhav-chat-app.vercel.app/api"
   axios.defaults.withCredentials = true;
 
   return (
