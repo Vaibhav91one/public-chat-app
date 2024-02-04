@@ -3,7 +3,7 @@ import './Navbar.scss'
 import LoginIcon from '@mui/icons-material/Login';
 import { createTheme } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import axios from 'axios'
 import { setUserInfo } from '../../store/Slices/UserInfo/UserInfoSlice';
@@ -22,10 +22,15 @@ export const Navbar = () => {
 
   const data = useSelector((state) => state.UserInfo)
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
-  const HandleLogout = () =>{
-    axios.post('/logout', { withCredentials: true })
-      .then(response => dispatch(setUserInfo()))
+  const HandleLogout = async() =>{
+    await axios.post('/logout', { withCredentials: true })
+      .then(
+        (response) => {
+          dispatch(setUserInfo())
+          navigate('/')
+        })
       .catch(error => console.error('Error:', error));
   }
 

@@ -12,7 +12,7 @@ import PusherClient from 'pusher-js'
 export const Chat = () => {
 
   const data = useSelector((state) => state.UserInfo)
-  const currentUserId = data?.userInfo.userId;
+  const currentUserId = data?.userInfo?.userId;
   const [messages, setMessages] = useState([]);
   const [newMessageText, setNewMessageText] = useState('');
   const [IncomingUserId, setIncomingUserId] = useState("")
