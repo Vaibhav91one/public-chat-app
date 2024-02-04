@@ -129,7 +129,7 @@ app.post('/api/message', async (req, res) => {
             file: filename,
         };
 
-        pusherServer.trigger(ChatRoomId, "incoming-message", Response);
+        await pusherServer.trigger(ChatRoomId, "incoming-message", Response);
     res.status(200).json({ message: 'Message sent successfully.' });
 
     }
@@ -140,7 +140,7 @@ app.post('/api/message', async (req, res) => {
             text: text,
         };
 
-        pusherServer.trigger(ChatRoomId, "incoming-message", Response);
+        await pusherServer.trigger(ChatRoomId, "incoming-message", Response);
     res.status(200).json({ message: 'Message sent successfully.' });
 
     }
