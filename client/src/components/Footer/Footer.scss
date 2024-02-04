@@ -1,0 +1,35 @@
+.FooterWrapper {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+
+    .AppName {
+        flex-grow: 1;
+        h2 {
+            color: white;
+            font-size: 25px;
+        }
+
+        span {
+            color: rgb(0, 153, 255);
+        }
+    }
+
+    .SocialLinks {
+        background-color: white;
+        padding: 10px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        font-size: 30px;
+        color: black;
+
+    }
+}

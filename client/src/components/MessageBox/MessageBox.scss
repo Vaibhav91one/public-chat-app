@@ -1,0 +1,43 @@
+.MessageBoxWrapper{
+    background-color:rgb(0, 153, 255);
+    display: block;
+    padding: 20px;
+    min-width: 60px;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    margin: 20px;
+    display: block;
+
+    .userName{
+        position: absolute;
+        top: 0;
+        margin: 5px;
+        left: 0;
+        color: rgba(255, 255, 255, 0.618);
+    }
+
+    .message{
+        text-align: center;
+        word-break:break-all;
+        margin: 20px 0;
+        width: 100%;
+    
+    }
+
+    .file{
+        color: white;
+        // border-bottom: 1px solid;
+        text-decoration: none;
+        width: 10px;
+        
+    }
+
+    .date{
+        position: absolute;
+        margin: 5px;
+        bottom: 0;
+        right: 0;
+        color: rgba(255, 255, 255, 0.618);
+    }
+}

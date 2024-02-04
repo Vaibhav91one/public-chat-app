@@ -1,0 +1,47 @@
+.NavBarWrapper{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 2em;
+    
+    .AppName{
+        flex-grow: 1;
+        h2{
+            color: white;
+            font-size: 25px;
+        }
+    
+        span{
+            color: rgb(0, 153, 255);
+
+        }
+    }
+
+    .userInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .1em;
+        color: white;
+    }
+
+    .NavInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+    }
+
+    .LogoutButton{
+        color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 0, 0, 0.229);
+        padding: 10px;
+        border-radius: 50%;
+    }
+}
+
