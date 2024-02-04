@@ -1,14 +1,28 @@
-*{
-    font-family: 'Finlandica', sans-serif;
+* {
+    font-family: "Finlandica", sans-serif;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    & {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
 }
 
-.RegisterWrapper{
+.RegisterWrapper {
     background-color: #ebf8ff;
-    height: 100vh;
+    min-height: 80vh;
+    @media screen and (min-width: 1600px) {
+        min-height: 85vh;
+    }
+
     display: flex;
     align-items: center;
 
-    .FormWrapper{
+    .FormWrapper {
         width: 16rem;
         margin-left: auto;
         margin-right: auto;
@@ -18,7 +32,8 @@
         flex-direction: column;
         gap: 1em;
 
-        .usernameInput, .passwordInput{
+        .usernameInput,
+        .passwordInput {
             width: 15rem;
             padding: 10px;
             border-radius: 20px;
@@ -26,8 +41,8 @@
             text-align: center;
         }
 
-        .SubmitButton{
-            font-family: 'Finlandica', sans-serif;
+        .SubmitButton {
+            font-family: "Finlandica", sans-serif;
             text-transform: uppercase;
             font-weight: bold;
             font-size: 15px;
@@ -35,36 +50,32 @@
             padding: 15px;
             width: 10rem;
             border-radius: 40px;
-            margin-top: 10px;
+            margin: 20px 0px;
             background-color: rgb(161, 197, 255);
             color: rgb(0, 135, 254);
             border: none;
             transition: 0.2s ease-in-out;
 
-            &:hover{
+            &:hover {
                 background-color: rgb(48, 133, 225);
                 color: white;
                 scale: 1.05;
             }
         }
 
-        .additionalInfo{
+        .additionalInfo {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 0.5em;
-            .switchBtn{
+            .switchBtn {
                 border: none;
-                font-family: 'Finlandica', sans-serif;
+                font-family: "Finlandica", sans-serif;
                 font-size: 15px;
-                &:hover{
+                &:hover {
                     text-decoration: underline;
                 }
-                
             }
         }
-
     }
-
-
 }

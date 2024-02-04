@@ -1,6 +1,8 @@
 import Button from '@mui/material/Button';
 import './Navbar.scss'
 import LoginIcon from '@mui/icons-material/Login';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import XIcon from '@mui/icons-material/X';
 import { createTheme } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -24,7 +26,7 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  const HandleLogout = async() =>{
+  const HandleLogout = async () => {
     await axios.post('/logout', { withCredentials: true })
       .then(
         (response) => {
@@ -37,6 +39,16 @@ export const Navbar = () => {
   return (
     <header>
       <nav className='NavBarWrapper'>
+        <div className='SocialLinks'>
+          <a target='_blank' href="https://github.com/Vaibhav91one">
+            <GitHubIcon />
+          </a>
+
+          <a target='_blank' href="https://twitter.com/VrsatileVaibhav">
+            <XIcon />
+          </a>
+        </div>
+
         <div className="AppName">
           <h2>
             Talk <span>Wisely</span>
@@ -58,7 +70,7 @@ export const Navbar = () => {
         {data?.userInfo?.username && (
           <div className='NavInfo'>
             <div className='userInfo'>
-              <PersonIcon/>
+              <PersonIcon />
               {data?.userInfo.username}
             </div>
             <div className="LogoutButton" onClick={HandleLogout}>

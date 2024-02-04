@@ -133,6 +133,8 @@ export const Chat = () => {
           <SendIcon />
         </button>
       </form>
+
+      <p className='Note'>NOTE: If messages are not being shown the pusher daily limit might be up</p>
     </div>
   )
 }

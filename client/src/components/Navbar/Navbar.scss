@@ -1,40 +1,63 @@
-.NavBarWrapper{
+.NavBarWrapper {
     background-color: black;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 15px;
     gap: 2em;
-    
-    .AppName{
-        flex-grow: 1;
-        h2{
+
+    .AppName {
+        h2 {
             color: white;
             font-size: 25px;
         }
-    
-        span{
-            color: rgb(0, 153, 255);
 
+        span {
+            color: rgb(0, 153, 255);
         }
     }
 
-    .userInfo{
+    .SocialLinks {
+        background-color: white;
+        padding: 10px;
+        border-radius: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: .1em;
+        gap: 0.5em;
+        font-size: 30px;
+        color: black;
+
+        a{
+            cursor: pointer;
+        }
+    }
+
+    .userInfo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5em;
         color: white;
+        background-color: rgba(65, 120, 175, 0.498);
+        border-radius: 20px;
+        padding: 8px;
+        flex-direction: row;
     }
 
-    .NavInfo{
+    .NavInfo {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 2em;
+        gap: 1em;
+        flex-direction: row;
+        @media screen and (max-width: 500px) {
+            gap: 1em;
+            flex-direction: column;
+        }
     }
 
-    .LogoutButton{
+    .LogoutButton {
         color: red;
         display: flex;
         justify-content: center;
@@ -44,4 +67,3 @@
         border-radius: 50%;
     }
 }
-
