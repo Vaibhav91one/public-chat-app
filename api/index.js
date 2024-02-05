@@ -74,17 +74,14 @@ app.get('/api/test', (req, res) => {
     res.json('test ok')
 })
 
-// app.get('/api/messages/:userId', async (req, res) => {
-//     const { userId } = req.params
-//     const userData = await getUserDataFromRequest(req);
-//     const ourUserId = userData.userId;
-//     const messages = await Message.find({
-//         sender: { $in: [userId, ourUserId] },
-//         recipient: { $in: [userId, ourUserId] },
-//     }).sort({ createdAt: 1 })
-
-//     res.json(messages);
-// })
+app.get('/api/messages/', async (req, res) => {
+    try {
+        const messages = await Message.find({}).sort({ createdAt: 1 });
+        res.json(messages);
+      } catch (error) {
+        res.status(500).send(error);
+      }
+})
 
 async function uploadToS3(data, originalFilename, mimetype) {
     const client = new S3Client({
@@ -116,6 +113,9 @@ app.post('/api/message', async (req, res) => {
 
     const { file, name, type } = req.body;
 
+    const now = new Date();
+    const time24 = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
+
     let filename = ''
 
     if (file) {
@@ -127,9 +127,13 @@ app.post('/api/message', async (req, res) => {
             userId: userId,
             username: username,
             file: filename,
+            time: time24,
         };
 
         await pusherServer.trigger(ChatRoomId, "incoming-message", Response);
+
+        const messageDoc = await Message.create(Response);
+
     res.status(200).json({ message: 'Message sent successfully.' });
 
     }
@@ -138,9 +142,12 @@ app.post('/api/message', async (req, res) => {
             userId: userId,
             username: username,
             text: text,
+            time: time24
         };
 
         await pusherServer.trigger(ChatRoomId, "incoming-message", Response);
+
+        const messageDoc = await Message.create(Response);
     res.status(200).json({ message: 'Message sent successfully.' });
 
     }

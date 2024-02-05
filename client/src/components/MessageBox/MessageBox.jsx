@@ -1,22 +1,26 @@
 import './MessageBox.scss'
+import { useSelector} from 'react-redux';
 
+export const MessageBox = ({ message, username, file, id, time }) => {
 
-export const MessageBox = ({ message, username, file }) => {
+    const data = useSelector((state) => state.UserInfo)
+    const currentUserId = data?.userInfo?.userId;
 
-    const now = new Date();
-    const time24 = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
+    const MessageBG = id === currentUserId ? 'white' : '';
+    const MessageText = id === currentUserId ? 'black' : '';
+
     return (
         <>
             {message && (
-                <div className="MessageBoxWrapper">
-                    <div className="userName">
+                <div style={{ backgroundColor: MessageBG, color: MessageText }}  className="MessageBoxWrapper">
+                    <div style={{ color: MessageText }}  className="userName">
                         {username}
                     </div>
                     <div className="message">
                         {message}
                     </div>
-                    <div className="date">
-                        {time24}
+                    <div style={{ color: MessageText }}  className="date">
+                        {time}
                     </div>
                 </div>
             )}
@@ -84,7 +88,7 @@ export const MessageBox = ({ message, username, file }) => {
                         })()}
                     </a>
                     <div className="date">
-                        {time24}
+                        {time}
                     </div>
                 </div>
             )}

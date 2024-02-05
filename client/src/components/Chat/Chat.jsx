@@ -18,6 +18,18 @@ export const Chat = () => {
   const [IncomingUserId, setIncomingUserId] = useState("")
   const divUnderMessagesRef = useRef();
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get('/messages/');
+        setMessages(response.data);
+      } catch (error) {
+        console.error('Failed to fetch messages:', error);
+      }
+    }
+    
+    fetchData();
+ }, []);
 
   if (!data?.userInfo?.username) {
     return <Navigate to='/' />
@@ -84,9 +96,7 @@ export const Chat = () => {
         // console.log(data)
         return prev;
       });
-    })
-
-
+    })    
 
     return () => {
       pusherClient.unsubscribe("mern-chat-app")
@@ -101,6 +111,8 @@ export const Chat = () => {
     }
   }, [messages])
 
+
+
   return (
     <div className='ChatWrapper'>
       <div className="ChatBox" style={{ display: 'flex', flexDirection: 'column' }}>
@@ -110,7 +122,7 @@ export const Chat = () => {
             
             return (
               <div key={index} style={{ display: 'flex', flexDirection: direction }}  >
-                <MessageBox  username={message.username} message={message.text} file={message.file} />
+                <MessageBox  username={message.username} message={message.text} file={message.file} id={message.userId} time={message.time} />
                 <div ref={divUnderMessagesRef}></div>
 
               </div>

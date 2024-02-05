@@ -5,6 +5,7 @@ const MessageSchema = new mongoose.Schema({
     username: String,
     text: String,
     file: String,
+    time: String,
 }, {timestamps: true})
 
 const MessageModel = mongoose.model("Message", MessageSchema)

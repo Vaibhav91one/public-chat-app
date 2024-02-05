@@ -23,7 +23,7 @@ function App() {
           <Route exact path='/chat' element={<ChatPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </>
 
   )
