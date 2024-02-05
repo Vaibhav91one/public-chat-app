@@ -146,7 +146,11 @@ export const Chat = () => {
         </button>
       </form>
 
-      <p className='Note'>NOTE: If messages are not being shown the pusher daily limit might be up</p>
+      <p className='Note'>NOTE: 
+      If messages are not being shown the pusher daily limit might be up.
+      <br />
+      Also, Vercel has a payload limit, so big files are not supported. 
+      </p>
     </div>
   )
 }
